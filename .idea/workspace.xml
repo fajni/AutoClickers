@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="34a141e8-87c0-42b4-bf6c-afa7abae0ec8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProgramsForGames/AutoClicker.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmd/AutoClicker.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProgramsForGames/AutoClicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProgramsForGames/AutoClicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProgramsForGames/WASD.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmd/WASD.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProgramsForGames/forms/AutoClickerForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProgramsForGames/forms/AutoClickerForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProgramsForGames/forms/AutoClickerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProgramsForGames/forms/AutoClickerForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +46,11 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programs\Intellij IDEA\workspace\AutoClickers\src\cmd" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.AutoClickerForm">
     <configuration name="AutoClicker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ProgramsForGames.AutoClicker" />

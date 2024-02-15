@@ -16,14 +16,16 @@ public class AutoClicker {
     private long press;
     private int mouseButton;
 
-    public AutoClicker(){ }
+    public AutoClicker() {
+    }
 
-    public AutoClicker(long timeBetweenClicks, long press, int mouseButton){
+    public AutoClicker(long timeBetweenClicks, long press, int mouseButton) {
         super();
         this.timeBetweenClicks = timeBetweenClicks;
         this.press = press;
         this.mouseButton = mouseButton;
     }
+
     public static void inputTime() {
         System.out.println("***Enter time between clicks in milliseconds (1s = 1000ms)***");
         System.out.print("Input: ");
@@ -51,9 +53,9 @@ public class AutoClicker {
             mouseButton2 = InputEvent.BUTTON2_DOWN_MASK; //Middle
     }
 
-    public void click(long timeBetweenClicks, long press, int mouseButton) {
-        try {
+    public static void click(long timeBetweenClicks, long press, int mouseButton) {
 
+        try {
             System.out.println("Script is starting in 2 seconds!");
             Thread.sleep(2500);
 
@@ -63,14 +65,22 @@ public class AutoClicker {
             while (true) {
                 System.out.println("Click number: " + clicks);
                 r.mousePress(mouseButton);
-                Thread.sleep(press);
+                Thread.sleep(press * 1000);
                 r.mouseRelease(mouseButton);
-                Thread.sleep(timeBetweenClicks);
+                Thread.sleep(timeBetweenClicks * 1000);
                 clicks++;
             }
         } catch (Exception e) {
             System.err.println("ERROR OCCURRED!");
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+
+        inputTime();
+        chooseSide();
+        click(timeBetweenClicks2, press2, mouseButton2);
+
     }
 }
