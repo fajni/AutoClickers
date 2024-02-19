@@ -2,32 +2,35 @@ package ProgramsForGames;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.util.Scanner;
 
 //Pressing WASD buttons constantly
 public class WASD {
 
-    //    public static void closing(long start) {
-//        long total = System.currentTimeMillis() - start;
-//        float sec = total / 1000F;
-//        System.out.println("Script has been running for: " + sec + "seconds");
-//        System.exit(0);
-//    }
+    public static Scanner input = new Scanner(System.in);
+
 //    private static double round(double value, int precision) { ZAOKRUZIVANJE NA 2 DECIMALE!
 //        int scale = (int) Math.pow(10, precision);
 //        return (double) Math.round(value * scale) / scale;
 //    }
 
-    public static void main(String[] args) {
+    public static void wasd(Long t){
 
-        long start = System.currentTimeMillis();
+        t =  t * 60000;
+
         try {
             System.out.println("Program will start in 2 seconds!");
-            System.err.println("Program will be run for 30min(1.800.000s) unless it\'s stopped!");
             Thread.sleep(2500);
 
             Robot r = new Robot();
+
             int wasdNumber = 1;
-            while (System.currentTimeMillis() > 1800000) {
+            long start = System.currentTimeMillis();
+            while ( t > 0) {
+
+                long before = System.currentTimeMillis();
+                Thread.sleep(1400);
+
                 System.out.println("WASD Number: " + wasdNumber);
                 r.keyPress(KeyEvent.VK_W);
                 Thread.sleep(150);
@@ -42,10 +45,12 @@ public class WASD {
                 Thread.sleep(150);
                 r.keyRelease(KeyEvent.VK_D);
                 wasdNumber++;
-                long total = System.currentTimeMillis() - start;
-                float sec = total / 1000F;
-                System.out.println("Script has been running for: " + Math.round(sec) + " seconds");
-                Thread.sleep(2000);
+
+                long after = System.currentTimeMillis();
+                long total = after - start;
+                long time = after - before;
+                System.out.println("Script has been running for: "+(total/1000)+ " seconds");
+                t = t - time;
             }
 
             //TO DO: F5==116 for closing
@@ -53,7 +58,15 @@ public class WASD {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    public static void main(String[] args) {
+
+        System.out.println("Enter value for how long will script be running (minutes): ");
+        long t = input.nextLong();
+        System.out.println("Value: " + (t/60000) + " minutes");
+
+        wasd(t);
     }
 }
 

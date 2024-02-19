@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="34a141e8-87c0-42b4-bf6c-afa7abae0ec8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProgramsForGames/AutoClicker.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmd/AutoClicker.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProgramsForGames/AutoClicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProgramsForGames/AutoClicker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProgramsForGames/WASD.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmd/WASD.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProgramsForGames/forms/AutoClickerForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProgramsForGames/forms/AutoClickerForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProgramsForGames/forms/AutoClickerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProgramsForGames/forms/AutoClickerForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProgramsForGames/WASD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProgramsForGames/WASD.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +47,7 @@
       <recent name="D:\Programs\Intellij IDEA\workspace\AutoClickers\src\cmd" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AutoClickerForm">
+  <component name="RunManager" selected="Application.WASDForm">
     <configuration name="AutoClicker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ProgramsForGames.AutoClicker" />
       <module name="AutoClickers" />
@@ -78,9 +74,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ProgramsForGames.Test" />
+      <module name="AutoClickers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ProgramsForGames.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WASD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ProgramsForGames.WASD" />
+      <module name="AutoClickers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ProgramsForGames.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WASDForm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ProgramsForGames.forms.WASDForm" />
+      <module name="AutoClickers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ProgramsForGames.forms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.WASDForm" />
         <item itemvalue="Application.AutoClickerForm" />
+        <item itemvalue="Application.WASD" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.AutoClicker" />
       </list>
     </recent_temporary>
