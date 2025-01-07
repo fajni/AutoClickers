@@ -1,0 +1,8 @@
+
+File -> Project Structure -> Artifacts -> + -> JAR ->
+	-> From modules with dependencies -> 
+	Main Class: 'You main form class'
+
+Build -> Build Artifacts -> 'Select you jar structure'
+
+- Inside out folder, inside artifacts is your jar file.
