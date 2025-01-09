@@ -32,8 +32,15 @@ public class AutoClickerForm {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+
         frame.setSize(700, 450);
-        frame.setResizable(false);
+
+        Dimension dimension = new Dimension();
+        dimension.setSize(500, 350);
+
+        frame.setMinimumSize(dimension);
+
+        frame.setResizable(true);
     }
 
     public int setMouseButton(String side) {

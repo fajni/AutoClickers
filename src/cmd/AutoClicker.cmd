@@ -1,2 +1,0 @@
-java AutoClicker.java
-/MIN

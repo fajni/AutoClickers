@@ -1,4 +1,4 @@
-<h2 align="center">Simple AutoClickers</h2>
+<h1 align="center">Simple AutoClickers</h1>
 
 Automating mouse clicker and WASD keys press on keyboard.
 
@@ -6,15 +6,25 @@ Written in Java using Swing.
 
 <details>
 <summary>Images</summary>
-<p align = "center">
+
+- AutoClicker:
+
 <img alt = "AutoClicker" src="images/AutoClicker.PNG">
 <br/>
+
+- WASD: 
+
 <img alt = "AutoClicker" src="images/WASD.PNG">
-</p>
 </details>
 
-##
+## How to run
 
-I've mainly made this clickers for my own purposes. These applications <b>are not stable</b> and need to be improved, but they'll do the job.
+_Make sure you have Java installed on you system!_
+
+Just run the _.bat_ files inside _jar_ folder.
+
+<hr/>
+
+I've mainly made these clickers for my own purposes. These applications <b>are not stable</b> and need to be improved, but they'll do the job.
 
 <i>Note: Forms will stop working only until the entire program is completed or until they are manually turned off.</i>
