@@ -11,6 +11,7 @@ Written in Java using Swing.
 
 <img alt = "AutoClicker" src="images/AutoClicker.PNG">
 <br/>
+<hr/>
 
 - WASD: 
 
@@ -19,7 +20,8 @@ Written in Java using Swing.
 
 ## How to run
 
-_Make sure you have Java installed on you system!_
+1. Make sure you have Java installed on you system,
+2. Make sure you have added Java to you Environment Variables.
 
 Just run the _.bat_ files inside _jar_ folder.
 

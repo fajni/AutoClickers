@@ -14,9 +14,9 @@ public class WASD {
 //        return (double) Math.round(value * scale) / scale;
 //    }
 
-    public static void wasd(Long t){
+    public static void wasd(Long executionTime, Long eachButton, Long WASDTime) {
 
-        t =  t * 60000;
+        executionTime = executionTime * 60000;
 
         try {
             System.out.println("Program will start in 2 seconds!");
@@ -24,33 +24,46 @@ public class WASD {
 
             Robot r = new Robot();
 
-            int wasdNumber = 1;
+            int wasdCounter = 1; // wasd counter
+
             long start = System.currentTimeMillis();
-            while ( t > 0) {
+            while (executionTime > 0) {
 
                 long before = System.currentTimeMillis();
-                Thread.sleep(1400);
 
-                System.out.println("WASD Number: " + wasdNumber);
+                Thread.sleep(WASDTime);
+
+                System.out.println("WASD Number: " + wasdCounter);
+
+                // W
                 r.keyPress(KeyEvent.VK_W);
-                Thread.sleep(150);
+                Thread.sleep(eachButton);
                 r.keyRelease(KeyEvent.VK_W);
+
+                // A
                 r.keyPress(KeyEvent.VK_A);
-                Thread.sleep(150);
+                Thread.sleep(eachButton);
                 r.keyRelease(KeyEvent.VK_A);
+
+                // S
                 r.keyPress(KeyEvent.VK_S);
-                Thread.sleep(150);
+                Thread.sleep(eachButton);
                 r.keyRelease(KeyEvent.VK_S);
+
+                // D
                 r.keyPress(KeyEvent.VK_D);
-                Thread.sleep(150);
+                Thread.sleep(eachButton);
                 r.keyRelease(KeyEvent.VK_D);
-                wasdNumber++;
+
+                wasdCounter++;
 
                 long after = System.currentTimeMillis();
                 long total = after - start;
                 long time = after - before;
-                System.out.println("Script has been running for: "+(total/1000)+ " seconds");
-                t = t - time;
+
+                System.out.println("Script has been running for: " + (total / 1000) + " seconds");
+
+                executionTime = executionTime - time;
             }
 
             //TO DO: F5==116 for closing
@@ -63,10 +76,18 @@ public class WASD {
     public static void main(String[] args) {
 
         System.out.println("Enter value for how long will script be running (minutes): ");
-        long t = input.nextLong();
-        System.out.println("Value: " + (t/60000) + " minutes");
+        long executionTime = input.nextLong();
+        System.out.println("Value: " + (executionTime / 60000) + " minutes");
 
-        wasd(t);
+        System.out.println("Enter value for how long will each button be pressed (milliseconds): ");
+        long eachButton = input.nextLong();
+        System.out.println("Value: " + (eachButton) + " milliseconds");
+
+        System.out.println("Enter time between each WASD combo (milliseconds): ");
+        long WASDTime = input.nextLong();
+        System.out.println("Value: " + (WASDTime) + " minutes");
+
+        wasd(executionTime, eachButton, WASDTime);
     }
 }
 

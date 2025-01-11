@@ -64,10 +64,16 @@ public class AutoClicker {
             int clicks = 1;
             while (true) {
                 System.out.println("Click number: " + clicks);
+
+                // Press
                 r.mousePress(mouseButton);
-                Thread.sleep(press * 1000);
+                // Thread.sleep(press * 1000); // seconds
+                Thread.sleep(press);
                 r.mouseRelease(mouseButton);
-                Thread.sleep(timeBetweenClicks * 1000);
+
+                // Between
+                // Thread.sleep(timeBetweenClicks * 1000); // seconds
+                Thread.sleep(timeBetweenClicks);
                 clicks++;
             }
         } catch (Exception e) {

@@ -8,6 +8,7 @@ import java.awt.event.*;
 import java.util.Objects;
 
 public class AutoClickerForm {
+
     private JPanel mainPanel;
     private JTextField textField_TimeBetween;
     private JButton btn_Start;
@@ -36,7 +37,7 @@ public class AutoClickerForm {
         frame.setSize(700, 450);
 
         Dimension dimension = new Dimension();
-        dimension.setSize(500, 350);
+        dimension.setSize(540, 375);
 
         frame.setMinimumSize(dimension);
 
@@ -64,19 +65,22 @@ public class AutoClickerForm {
             public void actionPerformed(ActionEvent e) {
 
                 if (Objects.equals(textField_TimeBetween.getText(), "") || comboBox_MouseSide.getSelectedItem() == null || Objects.equals(textField_TimePress.getText(), "")) {
+
                     textArea_Output.setText("Empty Fields Are Not Allowed!");
                     JOptionPane.showInternalMessageDialog(null, "Empty Fields Are Not Allowed!", "Wrong Inputs", 2);
+
                     return;
                 }
 
                 if (!isLong(textField_TimeBetween.getText()) || !isLong(textField_TimePress.getText())) {
+
                     return;
                 }
 
                 textArea_Output.setText(
-                        "Time between clicks: " + textField_TimeBetween.getText() + " seconds" +
+                        "Time between clicks: " + textField_TimeBetween.getText() + " milliseconds" +
                                 "\nMouse Side: " + comboBox_MouseSide.getSelectedItem() +
-                                "\nTime Press: " + textField_TimePress.getText() + " seconds"
+                                "\nTime Press: " + textField_TimePress.getText() + " milliseconds"
                 );
 
                 JOptionPane.showMessageDialog(null, "Starting the application with current values!");
