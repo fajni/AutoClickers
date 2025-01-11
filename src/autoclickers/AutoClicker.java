@@ -1,4 +1,4 @@
-package ProgramsForGames;
+package autoclickers;
 
 import java.awt.*;
 import java.awt.event.InputEvent;

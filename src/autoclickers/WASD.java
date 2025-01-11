@@ -1,4 +1,4 @@
-package ProgramsForGames;
+package autoclickers;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -66,7 +66,7 @@ public class WASD {
                 executionTime = executionTime - time;
             }
 
-            //TO DO: F5==116 for closing
+            //TODO: F5==116 for closing
 
         } catch (Exception e) {
             e.printStackTrace();

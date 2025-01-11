@@ -1,10 +1,13 @@
-package ProgramsForGames.forms;
+package autoclickers.forms;
 
-import ProgramsForGames.WASD;
+import autoclickers.WASD;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class WASDForm {
@@ -16,6 +19,19 @@ public class WASDForm {
     private JTextField textField_WASDTime;
     private JButton btn_Start;
     private JTextArea textArea_Output;
+    private JLabel s_ms;
+    private JScrollPane scrollPane;
+
+    private final Map<String, String> convert = new LinkedHashMap<>() {{
+        put("0.1", "100ms");
+        put("0.5s", "500ms");
+        put("1s", "1000ms");
+        put("1min", "60 000ms");
+        put("5min", "300 000ms");
+        put("10min", "600 000ms");
+        put("1h", "3 600 000ms");
+        put("1h30min", "5 400 000ms");
+    }};
 
     public boolean isLong(String s) {
         try {
@@ -74,6 +90,32 @@ public class WASDForm {
             Long WASDTime = Long.parseLong(textField_WASDTime.getText());
 
             WASD.wasd(executionTime, eachButton, WASDTime);
+        });
+
+        s_ms.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                String s = "";
+
+                for (Map.Entry<String, String> value : convert.entrySet()) {
+                    s = s + (value.getKey() + " = " + value.getValue() + "\n");
+                    System.out.println(value.getKey() + " = " + value.getValue());
+                }
+
+                textArea_Output.setText(s);
+            }
+
+        });
+
+        textArea_Output.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                textArea_Output.setText(""); // clear textArea on click
+            }
+
         });
     }
 

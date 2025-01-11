@@ -1,10 +1,12 @@
-package ProgramsForGames.forms;
+package autoclickers.forms;
 
-import ProgramsForGames.AutoClicker;
+import autoclickers.AutoClicker;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class AutoClickerForm {
@@ -15,6 +17,19 @@ public class AutoClickerForm {
     private JTextField textField_TimePress;
     private JComboBox comboBox_MouseSide;
     private JTextArea textArea_Output;
+    private JLabel s_ms;
+    private JScrollPane scrollPane; // Design View -> Right click on textArea -> Surround with JScrollPane
+
+    private final Map<String, String> convert = new LinkedHashMap<>() {{
+        put("0.1", "100ms");
+        put("0.5s", "500ms");
+        put("1s", "1000ms");
+        put("1min", "60 000ms");
+        put("5min", "300 000ms");
+        put("10min", "600 000ms");
+        put("1h", "3 600 000ms");
+        put("1h30min", "5 400 000ms");
+    }};
 
     public boolean isLong(String s) {
         try {
@@ -93,6 +108,32 @@ public class AutoClickerForm {
 
                 AutoClicker.click(timeBetweenClicks, press, mouseButton);
             }
+        });
+
+        s_ms.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                String s = "";
+
+                for (Map.Entry<String, String> value : convert.entrySet()) {
+                    s = s + ("\n" + value.getKey() + " = " + value.getValue());
+                    System.out.println(value.getKey() + " = " + value.getValue());
+                }
+
+                textArea_Output.setText(s);
+            }
+
+        });
+
+        textArea_Output.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                textArea_Output.setText(""); // clear textArea on click
+            }
+
         });
     }
 
