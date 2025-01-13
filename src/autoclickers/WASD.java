@@ -9,14 +9,9 @@ public class WASD {
 
     public static Scanner input = new Scanner(System.in);
 
-//    private static double round(double value, int precision) { ZAOKRUZIVANJE NA 2 DECIMALE!
-//        int scale = (int) Math.pow(10, precision);
-//        return (double) Math.round(value * scale) / scale;
-//    }
+    public static boolean stop = true;
 
-    public static void wasd(Long executionTime, Long eachButton, Long WASDTime) {
-
-        executionTime = executionTime * 60000;
+    public static void wasd(Long eachButton, Long WASDTime) {
 
         try {
             System.out.println("Program will start in 2 seconds!");
@@ -27,7 +22,7 @@ public class WASD {
             int wasdCounter = 1; // wasd counter
 
             long start = System.currentTimeMillis();
-            while (executionTime > 0) {
+            while (!stop) {
 
                 long before = System.currentTimeMillis();
 
@@ -62,11 +57,9 @@ public class WASD {
                 long time = after - before;
 
                 System.out.println("Script has been running for: " + (total / 1000) + " seconds");
-
-                executionTime = executionTime - time;
             }
 
-            //TODO: F5==116 for closing
+            //TODO: KEYBINDING - F5==116 for closing/starting
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,10 +67,6 @@ public class WASD {
     }
 
     public static void main(String[] args) {
-
-        System.out.println("Enter value for how long will script be running (minutes): ");
-        long executionTime = input.nextLong();
-        System.out.println("Value: " + (executionTime / 60000) + " minutes");
 
         System.out.println("Enter value for how long will each button be pressed (milliseconds): ");
         long eachButton = input.nextLong();
@@ -87,7 +76,7 @@ public class WASD {
         long WASDTime = input.nextLong();
         System.out.println("Value: " + (WASDTime) + " minutes");
 
-        wasd(executionTime, eachButton, WASDTime);
+        wasd(eachButton, WASDTime);
     }
 }
 

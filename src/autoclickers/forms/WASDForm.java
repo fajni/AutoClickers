@@ -14,13 +14,13 @@ public class WASDForm {
 
     private JPanel mainPanel;
     private JLabel label_Title;
-    private JTextField textField_Time;
     private JTextField textField_EachButton;
     private JTextField textField_WASDTime;
     private JButton btn_Start;
     private JTextArea textArea_Output;
     private JLabel s_ms;
     private JScrollPane scrollPane;
+    private JButton btn_Stop;
 
     private final Map<String, String> convert = new LinkedHashMap<>() {{
         put("0.1", "100ms");
@@ -64,7 +64,7 @@ public class WASDForm {
 
         btn_Start.addActionListener(action -> {
 
-            if (Objects.equals(textField_Time.getText(), "") || Objects.equals(textField_EachButton.getText(), "") || Objects.equals(textField_WASDTime.getText(), "")) {
+            if (Objects.equals(textField_EachButton.getText(), "") || Objects.equals(textField_WASDTime.getText(), "")) {
 
                 textArea_Output.setText("Empty Fields Are Not Allowed!");
                 JOptionPane.showInternalMessageDialog(null, "Empty Fields Are Not Allowed!", "Wrong Inputs", 2);
@@ -72,24 +72,45 @@ public class WASDForm {
                 return;
             }
 
-            if (!isLong(textField_Time.getText()) || !isLong(textField_EachButton.getText()) || !isLong(textField_WASDTime.getText())) {
+            if (!isLong(textField_EachButton.getText()) || !isLong(textField_WASDTime.getText())) {
 
                 return;
             }
 
             textArea_Output.setText(
-                    "Time: " + textField_Time.getText() + " minutes" +
-                            "\nTime For Each Button: " + textField_EachButton.getText() + " milliseconds" +
+                            "Time For Each Button: " + textField_EachButton.getText() + " milliseconds" +
                             "\nTime Between Each WASD: " + textField_WASDTime.getText() + " milliseconds"
             );
 
-            JOptionPane.showMessageDialog(null, "Application will be running for " + textField_Time.getText() + " minutes!");
+            JOptionPane.showMessageDialog(null, "Application will run with current values!");
 
-            Long executionTime = Long.parseLong(textField_Time.getText());
             Long eachButton = Long.parseLong(textField_EachButton.getText());
             Long WASDTime = Long.parseLong(textField_WASDTime.getText());
 
-            WASD.wasd(executionTime, eachButton, WASDTime);
+            new Thread(new Runnable() {
+
+                @Override
+                public void run() {
+                    WASD.stop = false;
+                    WASD.wasd(eachButton, WASDTime);
+                }
+
+            }).start();
+
+        });
+
+        btn_Stop.addActionListener(action -> {
+
+            if(WASD.stop) {
+
+                textArea_Output.setText("WASD is not running!");
+                return;
+            }
+
+            textArea_Output.setText("WASD stopped!");
+            JOptionPane.showMessageDialog(null, "WASD stopped!");
+            WASD.stop = true;
+
         });
 
         s_ms.addMouseListener(new MouseAdapter() {

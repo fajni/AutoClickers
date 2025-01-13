@@ -13,12 +13,15 @@ public class AutoClickerForm {
 
     private JPanel mainPanel;
     private JTextField textField_TimeBetween;
-    private JButton btn_Start;
     private JTextField textField_TimePress;
     private JComboBox comboBox_MouseSide;
     private JTextArea textArea_Output;
     private JLabel s_ms;
     private JScrollPane scrollPane; // Design View -> Right click on textArea -> Surround with JScrollPane
+    private JButton btn_Start;
+    private JButton btn_Stop;
+
+    private static boolean stop = false;
 
     private final Map<String, String> convert = new LinkedHashMap<>() {{
         put("0.1", "100ms");
@@ -106,8 +109,29 @@ public class AutoClickerForm {
 
                 System.out.println("Time between clicks: " + timeBetweenClicks + "s, Time press: " + press + ", Mouse Side: " + mouseButton);
 
-                AutoClicker.click(timeBetweenClicks, press, mouseButton);
+                AutoClicker.stop = false;
+                new Thread(() -> AutoClicker.click(timeBetweenClicks, press, mouseButton)).start();
+
+                //AutoClicker.click(timeBetweenClicks, press, mouseButton);
             }
+        });
+
+        btn_Stop.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if(AutoClicker.stop) {
+
+                    textArea_Output.setText("AutoClicker is not running!");
+                    return;
+                }
+
+                textArea_Output.setText("AutoClicker stopped!");
+                JOptionPane.showMessageDialog(null, "AutoClicker stopped!");
+                AutoClicker.stop = true;
+            }
+
         });
 
         s_ms.addMouseListener(new MouseAdapter() {

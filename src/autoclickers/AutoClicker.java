@@ -8,6 +8,8 @@ public class AutoClicker {
 
     public static Scanner input = new Scanner(System.in);
 
+    public static boolean stop = true;
+
     private static long timeBetweenClicks2; //2500
     private static long press2; //500
     private static int mouseButton2;
@@ -62,7 +64,7 @@ public class AutoClicker {
             Robot r = new Robot();
 
             int clicks = 1;
-            while (true) {
+            while (!stop) {
                 System.out.println("Click number: " + clicks);
 
                 // Press
